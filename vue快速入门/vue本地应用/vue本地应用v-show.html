@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show</title>
+</head>
+<body>
+<div id="app">
+    <input type="button"  @click="showChange" value="切换显示状态"></inputbutton>
+    <p v-show="flag">{{message}}</p>
+    <input type="button"  @click="addAge" value="加年龄"></inputbutton>
+    <p v-show="age>18">{{age}}</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            flag: false,
+            message: "看得见我吗？",
+            age: 17
+        },
+        methods: {
+            showChange: function () {
+                this.flag = !this.flag;
+            },
+            addAge: function (){
+                this.age = this.age+1;
+            }
+        }
+    })
+</script>
+</body>
+</html>

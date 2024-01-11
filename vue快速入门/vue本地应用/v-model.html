@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="message" @keyup.enter="showMessage">
+    <h2>{{message}}</h2>
+    <input type="button" value="更改message的值" @click="setMessage">
+
+
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "邪王真眼是最强的"
+        },
+        methods:{
+           showMessage: function (){
+               alert(this.message)
+           },
+            setMessage: function (){
+               this.message= "春江花月夜"
+            }
+        }
+    })
+</script>
+</body>
+</html>

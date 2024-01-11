@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="单击去睡觉" v-on:click="sleep">
+    <input type="button" value="简写单击去睡觉" @click="sleep">
+    <input type="button" value="简写双击" @dblclick="sleep">
+    <p @click="changeWords">{{content}}</p>
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            content: "去吃饭"
+        },
+        methods: {
+           sleep: function(){
+               alert("去睡觉");
+           },
+            changeWords: function (){
+               this.content+= '好的';
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

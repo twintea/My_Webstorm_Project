@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <style>
+        .active{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <img v-bind:src="imageSrc" alt=""><br>
+    <img :src="imageSrc" :title="imgTitle" alt=""><br>
+    <img :src="imageSrc" :title="imgTitle" :class="{active:isActive}"  alt=""><br>
+    <input type="button" value="切换active状态" @click="toggleActive">
+
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            imageSrc: "https://fanyi-cdn.cdn.bcebos.com/static/translation/img/header/logo_e835568.png",
+            imgTitle: "百度翻译",
+            isActive: false
+        },
+        methods: {
+          toggleActive: function (){
+              this.isActive = !this.isActive;
+          }
+        }
+    })
+</script>
+</body>
+</html>

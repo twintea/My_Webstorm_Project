@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on补充</title>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="点击有惊喜" @click="sleep('去睡觉','收到')">
+    <input type="text" @keyup.enter="sayHi">
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data:{
+            cities:[
+                "广州","北京","上海","深圳"
+            ],
+            people:[
+                {name: "张三", sex: "男", phone: "12345"},
+                {name: "李四", sex: "女", phone: "67890"}
+            ]
+        },
+        methods: {
+            sleep: function (p1,p2){
+                console.log(p1);
+                console.log(p2);
+            },
+            sayHi: function () {
+               alert("尼吼啊！");
+            }
+        }
+    })
+</script>
+</body>
+</html>

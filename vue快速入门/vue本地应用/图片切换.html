@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="referrer" content="no-referrer"/> <!--可以让img标签预加载网络图片-->
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="app">
+<!--    左箭头-->
+    <a href="javascipt:void(0)" @click="prev" class="left" v-show="this.index!=0">
+        <img src="images/prev.png">
+    </a>
+<!--    图片-->
+    <img :src="imageArray[this.index]" alt="">
+<!--    右箭头-->
+    <a href="javascipt:void(0)" @click="next" class="right" v-show="this.index != this.imageArray.length-1">
+        <img src="images/next.png">
+    </a>
+
+
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            imageArray: [
+                "http://img.logozhan.com/d/file/logo/20220223/4c3227043400545b296ccdb10706af66.jpg",
+                "http://img.logozhan.com/d/file/logo/20220304/0250cd7d6d4e1e91a6d766fd73b2e605.jpg",
+                "http://img.logozhan.com/d/file/logo/20220218/7345fd5432731faab5e2b5595987ed32.jpg",
+                "http://img.logozhan.com/d/file/logo/20220213/0b6f84ceea94a6c77ea20ff2d792bd06.png",
+                "http://img.logozhan.com/d/file/logo/20220213/37ae621c57fe3954723940258dad210d.png",
+                "http://img.logozhan.com/d/file/logo/20220204/b682babf1fa75432c9cee435401573a6.png",
+                "http://img.logozhan.com/d/file/logo/20220204/1c6cf0e8b0c2969a4215c84eb73a6d7a.png"
+            ],
+            index: 0
+        },
+        methods: {
+            next: function () {
+                // if (this.index < this.imageArray.length - 1)
+                    this.index++;
+            },
+            prev: function () {
+                // if (this.index > 0)
+                    this.index--;
+            }
+        }
+    })
+</script>
+</body>
+</html>

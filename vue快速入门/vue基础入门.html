@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue基础首页</title>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    <p>
+        {{person.name}}<br>
+        {{person.hobbies}}
+       <li>{{person.hobbies[0]}}</li>
+       <li>{{person.hobbies[2]}}</li>
+    </p>
+
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+   var app = new Vue({
+        el: '#app',
+       data: {
+            message: 'Hello world!',
+           person: {
+                name: '张三',
+               gender:'男',
+               phone: '123456',
+               hobbies: ['打篮球','踢足球','游泳']
+           }
+       }
+    })
+</script>
+
+</body>
+</html>

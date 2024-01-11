@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in cities">{{index+1+"、"}}{{item}}</li>
+    </ul>
+    <input type="button" @click="add" value="添加元素">
+    <input type="button" @click="remove" value="删除元素">
+    <p v-for="person in people" :title="person.sex">{{person.name}}</p>
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+      el: "#app",
+      data:{
+          cities:[
+              "广州","北京","上海","深圳"
+          ],
+          people:[
+              {name: "张三", sex: "男", phone: "12345"},
+              {name: "李四", sex: "女", phone: "67890"}
+          ]
+      },
+      methods: {
+          add: function (){
+              //在 people数组尾部添加元素：
+              this.people.push({name: "张三", sex: "男", phone: "12345"});
+          },
+          remove: function (){
+              //删除people数组第一个元素
+              this.people.shift();
+          }
+      }
+  })
+</script>
+</body>
+</html>
